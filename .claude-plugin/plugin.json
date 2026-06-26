@@ -1,0 +1,10 @@
+{
+  "name": "auto-paper-collecter",
+  "description": "Personal research-paper radar. Fetches the latest papers and code repos for your keyword subscriptions across arXiv, Crossref (IEEE/ACM), Semantic Scholar, GitHub and RSS; then the running model expands the queries, filters for computer-science relevance, writes summaries, detects hot sub-fields, and emits a Markdown + HTML digest. Pure Python stdlib, zero dependencies, no AI API key required.",
+  "version": "1.0.0",
+  "author": { "name": "Penghao Jiang" },
+  "homepage": "https://github.com/PenghaoJiang/auto-paper-collecter",
+  "repository": "https://github.com/PenghaoJiang/auto-paper-collecter",
+  "license": "MIT",
+  "keywords": ["arxiv", "research", "papers", "literature-review", "rag", "agent-skill", "research-assistant"]
+}

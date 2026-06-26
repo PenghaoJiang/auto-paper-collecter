@@ -1,0 +1,19 @@
+{
+  "name": "auto-paper-collecter",
+  "owner": { "name": "Penghao Jiang" },
+  "metadata": {
+    "description": "A research-paper radar skill for Claude Code.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "auto-paper-collecter",
+      "source": ".",
+      "description": "Personal research-paper radar — daily multi-source paper digest (arXiv/Crossref/Semantic Scholar/GitHub/RSS), agent-driven, no API key.",
+      "version": "1.0.0",
+      "license": "MIT",
+      "homepage": "https://github.com/PenghaoJiang/auto-paper-collecter",
+      "keywords": ["arxiv", "research", "papers", "literature-review", "rag", "research-assistant"]
+    }
+  ]
+}

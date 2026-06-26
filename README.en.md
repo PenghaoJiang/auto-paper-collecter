@@ -29,11 +29,11 @@ Every morning, let AI sweep arXiv for you and bring the latest, most relevant pa
 
 > **2026-06-26 · Added an Agent Skill version** 🤖
 >
-> Besides the web app, the repo now ships a **Claude Code / Codex–compatible Agent Skill** ([`skill/`](skill/)).
+> Besides the web app, the repo now ships a **Claude Code / Codex–compatible Agent Skill** ([`skills/auto-paper-collecter/`](skills/auto-paper-collecter/)).
 > Just say **"run my paper radar"** and it runs the whole pipeline and produces today's digest ——
 > **pure Python stdlib, zero dependencies, no AI API key** (the model running the skill does the query
 > expansion / relevance filtering / summaries / hot-topics itself).
-> 👉 See the **"🤖 Use as an Agent Skill"** section below and [`skill/SKILL.md`](skill/SKILL.md).
+> 👉 See the **"🤖 Use as an Agent Skill"** section below and [`skills/auto-paper-collecter/SKILL.md`](skills/auto-paper-collecter/SKILL.md).
 
 ---
 
@@ -139,20 +139,27 @@ Open **http://localhost:8000** → go to "Settings" to add keywords → click "S
 
 ## 🤖 Use as an Agent Skill
 
-Besides the web app, the repo ships a **Claude Code / Codex–compatible Agent Skill** (the [`skill/`](skill/) directory) —
+Besides the web app, the repo ships a **Claude Code / Codex–compatible Agent Skill** (the [`skills/auto-paper-collecter/`](skills/auto-paper-collecter/) directory) —
 just tell your AI assistant **"run my paper radar"** and it runs the whole pipeline and produces today's digest,
 with **no AI API key needed** (the model running the skill *is* the LLM).
 
+**Option 1 · Install as a Claude Code plugin (recommended, one-liner)**
+
 ```bash
-# Install: copy skill/ into your Claude Code skills directory
-cp -r skill ~/.claude/skills/auto-paper-collecter
-# Edit your keywords
-$EDITOR ~/.claude/skills/auto-paper-collecter/state/config.json
+/plugin marketplace add PenghaoJiang/auto-paper-collecter
+/plugin install auto-paper-collecter@auto-paper-collecter
+```
+
+**Option 2 · Copy the skill directory directly**
+
+```bash
+cp -r skills/auto-paper-collecter ~/.claude/skills/auto-paper-collecter
+$EDITOR ~/.claude/skills/auto-paper-collecter/state/config.json   # edit your keywords
 ```
 
 Then tell Claude Code **"run my paper radar / what's new today"**. The scripts are **pure Python stdlib, zero-dep**;
 deterministic fetching is done by the scripts, while the LLM judgement (expansion / relevance filter / summaries /
-hot-topics) is done by the model running the skill (Claude Code → Claude; Codex → GPT). See [`skill/SKILL.md`](skill/SKILL.md).
+hot-topics) is done by the model running the skill (Claude Code → Claude; Codex → GPT). See [`skills/auto-paper-collecter/SKILL.md`](skills/auto-paper-collecter/SKILL.md).
 
 ---
 
