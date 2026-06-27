@@ -28,10 +28,17 @@ Every morning, let AI sweep arXiv for you and bring the latest, most relevant pa
 
 ## 🆕 What's New
 
-> **2026-06-27 · Big UX upgrade v1.1** ✨
->
-> 📱 Mobile layout · 🌙 dark mode · ⏳ refresh progress · 👍/👎 feedback learning (gets to know you) ·
-> sort / read filters · 🔔 WeChat / Telegram / Slack push · 🛰️ new HuggingFace & Papers-with-Code sources · 🐳 Docker deploy.
+### ✨ v1.1 — UX & smarts upgrade · 2026-06-27
+
+<table>
+<tr><td>🎨&nbsp;<b>UX</b></td><td>Responsive mobile layout · polished <b>dark mode</b> (elegant dark-gray cards, not black) · live <b>refresh progress</b> (summarizing 12/20…)</td></tr>
+<tr><td>🧠&nbsp;<b>Smarter</b></td><td><b>👍/👎 feedback learning</b> (down-voted topics get pushed less) · sort by newest / oldest / source · all / unread / read filter</td></tr>
+<tr><td>🛰️&nbsp;<b>More sources</b></td><td>added <b>HuggingFace</b> & <b>Papers with Code</b>; GitHub now <b>ranked by stars</b> — only substantive repos</td></tr>
+<tr><td>🔔&nbsp;<b>Multi-channel push</b></td><td><b>WeChat</b> (WeCom robot / Server酱) · <b>Telegram</b> · <b>Slack</b></td></tr>
+<tr><td>⚡&nbsp;<b>Faster & sturdier</b></td><td>concurrent summaries with fail-fast fallback; GitHub uses repo description, no AI summary (fixes garbled text)</td></tr>
+<tr><td>🐳&nbsp;<b>One-command deploy</b></td><td><code>docker compose up -d</code>, DB persisted to <code>./data</code></td></tr>
+<tr><td>🤖&nbsp;<b>Skill in sync</b></td><td>all fetch / push improvements mirrored into the Agent Skill</td></tr>
+</table>
 
 > **2026-06-27 · Now listed on SkillHub** 🎉
 >

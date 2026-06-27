@@ -28,10 +28,17 @@
 
 ## 🆕 最新更新 · What's New
 
-> **2026-06-27 · 体验大升级 v1.1** ✨
->
-> 📱 移动端适配 · 🌙 深色模式 · ⏳ 刷新进度 · 👍/👎 反馈学习（越用越懂你）· 排序 / 已读筛选 ·
-> 🔔 微信 / Telegram / Slack 多渠道推送 · 🛰️ 新增 HuggingFace 与 Papers with Code 源 · 🐳 Docker 一键部署。
+### ✨ v1.1 — 体验与智能双升级 · 2026-06-27
+
+<table>
+<tr><td>🎨&nbsp;<b>体验</b></td><td>移动端自适应布局 · 精修<b>深色模式</b>（优雅深灰卡片，非纯黑）· 刷新<b>实时进度</b>（生成摘要 12/20…）</td></tr>
+<tr><td>🧠&nbsp;<b>更聪明</b></td><td><b>👍/👎 反馈学习</b>（不喜欢的下次自动少推）· 最新 / 最早 / 来源排序 · 全部 / 未读 / 已读筛选</td></tr>
+<tr><td>🛰️&nbsp;<b>更多源</b></td><td>新增 <b>HuggingFace</b> 与 <b>Papers with Code</b>；GitHub 改为<b>按 star 排序</b>，只留高质量仓库</td></tr>
+<tr><td>🔔&nbsp;<b>多渠道推送</b></td><td><b>微信</b>（企业微信群机器人 / Server酱）· <b>Telegram</b> · <b>Slack</b></td></tr>
+<tr><td>⚡&nbsp;<b>更快更稳</b></td><td>摘要并发提速、快速失败兜底；GitHub 用仓库描述、不做 AI 摘要（根治乱码）</td></tr>
+<tr><td>🐳&nbsp;<b>一键部署</b></td><td><code>docker compose up -d</code>，数据库持久化到 <code>./data</code></td></tr>
+<tr><td>🤖&nbsp;<b>Skill 同步</b></td><td>以上抓取 / 推送相关改进已同步到 Agent Skill 版</td></tr>
+</table>
 
 > **2026-06-27 · 已上架 SkillHub** 🎉
 >
