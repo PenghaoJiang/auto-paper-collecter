@@ -129,8 +129,9 @@ def src_github(query, n):
     tok = os.environ.get("GITHUB_TOKEN", "")
     if tok:
         headers["Authorization"] = "Bearer " + tok
+    # quality over recency: require traction (stars:>=10) + rank by stars
     data = C.http_json("https://api.github.com/search/repositories?" + C.qs({
-        "q": f"{query} in:name,description", "sort": "updated", "order": "desc",
+        "q": f"{query} in:name,description stars:>=10", "sort": "stars", "order": "desc",
         "per_page": min(n, 12)}), headers=headers)
     out = []
     for it in ((data or {}).get("items") or []):
@@ -148,6 +149,59 @@ def src_github(query, n):
             "url": it.get("html_url", ""),
             "authors": [(it.get("owner") or {}).get("login", "")],
             "venue": f"★{it.get('stargazers_count', 0)}", "doi": "",
+            "published": d.isoformat() if d else "", "_d": d,
+        })
+    return out
+
+
+def src_huggingface(query, n):
+    data = C.http_json("https://huggingface.co/api/papers/search?" + C.qs({"q": query}))
+    out = []
+    for entry in (data or [])[:n]:
+        p = entry.get("paper", entry) if isinstance(entry, dict) else {}
+        if not p or not p.get("title"):
+            continue
+        pid = p.get("id", "")
+        d = None
+        pub = p.get("publishedAt") or p.get("published_at") or ""
+        if pub:
+            try:
+                d = dt.datetime.strptime(pub[:10], "%Y-%m-%d")
+            except ValueError:
+                pass
+        out.append({
+            "source": "HuggingFace",
+            "title": " ".join((p.get("title") or "").split()),
+            "abstract": (p.get("summary") or "").strip(),
+            "url": f"https://huggingface.co/papers/{pid}" if pid else "",
+            "authors": [a.get("name", "") if isinstance(a, dict) else str(a)
+                        for a in (p.get("authors") or [])],
+            "venue": "HuggingFace", "doi": "",
+            "published": d.isoformat() if d else "", "_d": d,
+        })
+    return out
+
+
+def src_paperswithcode(query, n):
+    data = C.http_json("https://paperswithcode.com/api/v1/papers/?" + C.qs(
+        {"q": query, "items_per_page": n}))
+    out = []
+    for p in ((data or {}).get("results") or [])[:n]:
+        if not p.get("title"):
+            continue
+        d = None
+        if p.get("published"):
+            try:
+                d = dt.datetime.strptime(p["published"][:10], "%Y-%m-%d")
+            except ValueError:
+                pass
+        out.append({
+            "source": "PapersWithCode",
+            "title": " ".join((p.get("title") or "").split()),
+            "abstract": (p.get("abstract") or "").strip(),
+            "url": p.get("url_abs") or p.get("url_pdf") or "",
+            "authors": p.get("authors") or [],
+            "venue": "Papers with Code", "doi": p.get("doi", "") or "",
             "published": d.isoformat() if d else "", "_d": d,
         })
     return out
@@ -186,7 +240,8 @@ def src_rss(query, feeds, n):
 
 
 SOURCES = {"arXiv": src_arxiv, "Crossref": src_crossref,
-           "Semantic Scholar": src_s2, "GitHub": src_github}
+           "Semantic Scholar": src_s2, "GitHub": src_github,
+           "HuggingFace": src_huggingface, "PapersWithCode": src_paperswithcode}
 
 
 def main():

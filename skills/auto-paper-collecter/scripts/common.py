@@ -35,7 +35,8 @@ def config():
     return load_json(os.path.join(STATE, "config.json"), {
         "keywords": [], "domain": "computer science",
         "sources": {"arXiv": True, "Crossref": True, "Semantic Scholar": True,
-                    "GitHub": True, "RSS": True},
+                    "GitHub": True, "HuggingFace": True, "PapersWithCode": True,
+                    "RSS": True},
         "lookback_days": 5, "max_per_source": 15,
         "rss_feeds": ["http://export.arxiv.org/rss/cs.PL"],
     })

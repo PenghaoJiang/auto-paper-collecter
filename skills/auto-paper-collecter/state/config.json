@@ -6,6 +6,8 @@
     "Crossref": true,
     "Semantic Scholar": true,
     "GitHub": true,
+    "HuggingFace": true,
+    "PapersWithCode": true,
     "RSS": true
   },
   "lookback_days": 5,

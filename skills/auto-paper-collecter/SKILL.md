@@ -1,6 +1,6 @@
 ---
 name: auto-paper-collecter
-description: Personal research-paper radar. Fetches the latest papers and code repos for the user's keyword subscriptions across arXiv, Crossref (IEEE/ACM), Semantic Scholar, GitHub and RSS; deduplicates against history; then YOU (the assistant) expand the queries, filter for computer-science relevance, write Chinese summaries, detect hot sub-fields, and emit a Markdown + HTML digest (optionally emailed). Use when the user asks to "run my paper radar / 文献雷达", "check for new papers", "what's new in my topics", "今天有什么新论文 / 最新文献", "today's research digest", or to configure their keyword subscriptions / sources / schedule.
+description: Personal research-paper radar. Fetches the latest papers and code repos for the user's keyword subscriptions across arXiv, Crossref (IEEE/ACM), Semantic Scholar, GitHub, HuggingFace, Papers with Code and RSS; deduplicates against history; then YOU (the assistant) expand the queries, filter for computer-science relevance, write Chinese summaries, detect hot sub-fields, and emit a Markdown + HTML digest (optionally emailed). Use when the user asks to "run my paper radar / 文献雷达", "check for new papers", "what's new in my topics", "今天有什么新论文 / 最新文献", "today's research digest", or to configure their keyword subscriptions / sources / schedule.
 ---
 
 # auto-paper-collecter (skill)
@@ -25,7 +25,7 @@ Run scripts from `scripts/`:  `cd skill/scripts && python3 <script>.py`
 ## Config — `state/config.json`
 - `keywords`: up to ~3 topic strings to track.
 - `domain`: the field to constrain relevance to (default `computer science`).
-- `sources`: toggle `arXiv / Crossref / Semantic Scholar / GitHub / RSS`.
+- `sources`: toggle `arXiv / Crossref / Semantic Scholar / GitHub / HuggingFace / PapersWithCode / RSS`.
 - `lookback_days`: how far back to fetch (dedup stops repeats anyway).
 - `max_per_source`, `rss_feeds`.
 
@@ -33,8 +33,9 @@ When the user asks to change keywords / sources / field, **edit this file** and
 confirm the change back to them.
 
 > Optional env vars (never stored in the repo): `SEMANTIC_SCHOLAR_KEY` (lifts S2
-> rate limits), `GITHUB_TOKEN` (lifts GitHub limits), and `SMTP_*` / `EMAIL_TO`
-> for emailing the digest.
+> rate limits), `GITHUB_TOKEN` (lifts GitHub limits), `SMTP_*` / `EMAIL_TO`
+> (email), and push channels — `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID`,
+> `SLACK_WEBHOOK_URL`, `WECHAT_WEBHOOK` (企业微信群机器人) or `SERVERCHAN_KEY` (Server酱).
 
 ## The run pipeline — follow IN ORDER
 
@@ -67,6 +68,11 @@ list of objects:
 ```
 Keep papers first, GitHub repos last (they are a supplementary signal). If a
 source gave a `tldr` already, you may build on it.
+
+> GitHub items are **repos, not papers** — don't over-summarize them. Use the
+> repo description (its `abstract`) as the `tldr` and leave `method`/`contributions`
+> empty. `fetch.py` already keeps only repos with ≥10 stars, ranked by stars, so
+> they tend to be substantive (course / framework / awesome-list), not personal noise.
 
 ### 4 · Hot-topic synthesis  *(you, optional but recommended)*
 Cluster the kept items into a handful of **coarse CS sub-fields** (自然语言处理 /
