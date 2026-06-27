@@ -17,6 +17,7 @@
 <img src="https://img.shields.io/badge/License-MIT-22c55e" alt="License">
 <img src="https://img.shields.io/badge/PRs-welcome-ff69b4" alt="PRs Welcome">
 <img src="https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20%26%20%E2%98%95-red" alt="Made with love">
+<a href="https://skillhub.cn/skills/auto-paper-collecter"><img src="https://img.shields.io/badge/SkillHub-已上架-22c55e" alt="SkillHub"></a>
 
 <br>
 <sub>如果它帮你省下了刷 arXiv 的时间，欢迎点一个 ⭐ —— 这是对作者最大的鼓励！</sub>
@@ -26,6 +27,10 @@
 ---
 
 ## 🆕 最新更新 · What's New
+
+> **2026-06-27 · 已上架 SkillHub** 🎉
+>
+> 本 skill 现已登陆 **[SkillHub](https://skillhub.cn/skills/auto-paper-collecter)**，可在平台上直接浏览 / 获取与安装。
 
 > **2026-06-26 · Agent Skill 现可一键安装为 Claude Code 插件，并支持 Codex** 🤖🔌
 >
@@ -157,6 +162,8 @@ $EDITOR ~/.claude/skills/auto-paper-collecter/state/config.json   # 编辑你的
 然后对 Claude Code 说 **「运行我的文献雷达 / 今天有什么新论文」** 即可。脚本是**纯 Python 标准库、零依赖**；
 确定性的抓取交给脚本，LLM 的判断（联想扩展 / 相关性过滤 / 中文摘要 / 热点）由运行 skill 的模型完成
 （Claude Code → Claude；Codex → GPT）。细节见 [`skills/auto-paper-collecter/SKILL.md`](skills/auto-paper-collecter/SKILL.md)。
+
+> 📦 本 skill 也已上架 **[SkillHub](https://skillhub.cn/skills/auto-paper-collecter)**，可在平台上直接浏览 / 获取。
 
 ---
 

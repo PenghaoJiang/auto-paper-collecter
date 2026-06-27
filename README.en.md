@@ -17,6 +17,7 @@ Every morning, let AI sweep arXiv for you and bring the latest, most relevant pa
 <img src="https://img.shields.io/badge/License-MIT-22c55e" alt="License">
 <img src="https://img.shields.io/badge/PRs-welcome-ff69b4" alt="PRs Welcome">
 <img src="https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20%26%20%E2%98%95-red" alt="Made with love">
+<a href="https://skillhub.cn/skills/auto-paper-collecter"><img src="https://img.shields.io/badge/SkillHub-listed-22c55e" alt="SkillHub"></a>
 
 <br>
 <sub>If it saves you time scrolling arXiv, a ⭐ would mean a lot to the author!</sub>
@@ -26,6 +27,10 @@ Every morning, let AI sweep arXiv for you and bring the latest, most relevant pa
 ---
 
 ## 🆕 What's New
+
+> **2026-06-27 · Now listed on SkillHub** 🎉
+>
+> This skill is now live on **[SkillHub](https://skillhub.cn/skills/auto-paper-collecter)** — browse / get it right from the platform.
 
 > **2026-06-26 · The Agent Skill is now a one-command Claude Code plugin, with Codex support** 🤖🔌
 >
@@ -159,6 +164,8 @@ $EDITOR ~/.claude/skills/auto-paper-collecter/state/config.json   # edit your ke
 Then tell Claude Code **"run my paper radar / what's new today"**. The scripts are **pure Python stdlib, zero-dep**;
 deterministic fetching is done by the scripts, while the LLM judgement (expansion / relevance filter / summaries /
 hot-topics) is done by the model running the skill (Claude Code → Claude; Codex → GPT). See [`skills/auto-paper-collecter/SKILL.md`](skills/auto-paper-collecter/SKILL.md).
+
+> 📦 This skill is also listed on **[SkillHub](https://skillhub.cn/skills/auto-paper-collecter)** — browse / get it there.
 
 ---
 
